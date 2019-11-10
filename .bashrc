@@ -116,3 +116,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+#ここから僕が追加した部分
+# ctrl+s で出力がロックされてしまうのを防ぐ
+stty stop undef
+
+# プロンプトの表示をカスタマイズ
+export PS1='\[\033[01;32m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\]'
