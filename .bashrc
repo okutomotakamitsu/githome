@@ -108,3 +108,7 @@ stty stop undef
 # プロンプトの表示をカスタマイズ
 # export PS1='\[\033[01;32m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\]'
 export PS1='\[\033[01;32m\]\H\[\033[01;34m\] \w \$\[\033[00m\]'
+
+# 追加のエイリアス
+alias mail='sendmail'
+alias exp='thunar'

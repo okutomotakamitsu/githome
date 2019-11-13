@@ -64,16 +64,26 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+
+"ココらへんから僕が追加したコード
+
 " インサートモード時の十字キーを指定
 set nocompatible
 set backspace=indent,eol,start
 
+"文字コード
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 
-" Escを押時IMEをOFF
+" NORMALモードに戻るときにIMEをOFFにする
 function! ImInActivate()
   call system('fcitx-remote -c')
 endfunction
-inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
+
+inoremap <silent> jj <ESC>:call ImInActivate()<CR>
+inoremap <silent> っｊ <ESC>:call ImInActivate()<CR>
+inoremap <silent> <C-j> <ESC>:call ImInActivate()<CR>
+
+" クリップボードを利用する
+set clipboard=unnamed,autoselect
