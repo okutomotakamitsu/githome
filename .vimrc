@@ -86,4 +86,28 @@ inoremap <silent> っｊ <ESC>:call ImInActivate()<CR>
 inoremap <silent> <C-j> <ESC>:call ImInActivate()<CR>
 
 " クリップボードを利用する
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+call plug#end()
+
+" 分割画面の最大化切り替え
+let g:toggle_window_size = 0
+function! ToggleWindowSize()
+  if g:toggle_window_size == 1
+    exec "normal \<C-w>="
+    let g:toggle_window_size = 0
+  else
+    :resize
+    :vertical resize
+    let g:toggle_window_size = 1
+  endif
+endfunction
+nnoremap M :call ToggleWindowSize()<CR>
+
